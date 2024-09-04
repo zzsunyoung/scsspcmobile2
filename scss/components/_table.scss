@@ -1,0 +1,6 @@
+@use "../abstracts/" as *;
+@layer components.table {
+  caption {
+    @include a11y-hidden;
+  }
+}

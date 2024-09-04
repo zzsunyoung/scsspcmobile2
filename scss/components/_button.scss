@@ -1,0 +1,58 @@
+@use "sass:list";
+@use "../abstracts/" as *;
+
+$buttonSize: (
+  1: (
+    "className": ".base",
+    "height": 40,
+    "fontSize": 16,
+    "paddingInline": 25,
+    "borderWidth": 1,
+    "fontWeight": null,
+  ),
+);
+
+//버튼 색상정의
+$buttonColor: (
+  1: (
+    "className": "blue",
+    "bgColor": #000,
+    "color": #fff,
+    "borderColor": red,
+  ),
+);
+
+$buttonIcon: (
+  1: (
+    "className": ".ico1",
+    "direction": after,
+    "imgName": "ico_book.svg",
+    "width": 16,
+    "height": 16,
+  ),
+);
+@layer Componets.Button {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: rem(8);
+    box-sizing: border-box;
+    &.fullsize {
+      width: 100%;
+    }
+
+    @for $index from 1 through list.length($buttonIcon) {
+      @include buttonIcon($buttonIcon, $index);
+    }
+
+    @for $idx from 1 through list.length($buttonSize) {
+      @include buttonSize($buttonSize, $idx);
+    }
+
+    @for $index from 1 through list.length($buttonColor) {
+      @include buttonColor($buttonColor, $index);
+    }
+  }
+}

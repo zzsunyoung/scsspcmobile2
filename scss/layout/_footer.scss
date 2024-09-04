@@ -1,0 +1,74 @@
+@use "../abstracts/" as *;
+@use "./align" as *;
+@layer layout.Footer {
+  .footer {
+    background: $neutral-07-100percent;
+    color: $neutral-03-100percent;
+    @include mobile {
+      width: 100%;
+    }
+    &__info {
+      @extend .mxauto;
+      display: flex;
+      justify-content: space-between;
+      padding-top: rem(7);
+    }
+    &__logo {
+      display: grid;
+      grid-template-columns: 1fr max-content;
+      gap: rem(30);
+      align-items: center;
+      span {
+        color: $neutral-03-100percent;
+        font-weight: 400;
+        font-size: rem(12);
+      }
+      span::before {
+        @include bar(l, 1, 24, red, 32);
+      }
+    }
+    hr {
+      @extend .mxauto;
+      margin-top: rem(55);
+      opacity: 0.4;
+    }
+    &__link {
+      @extend .mxauto;
+      display: flex;
+      gap: rem(21);
+      flex-direction: row-reverse;
+      align-items: center;
+      font-weight: 400;
+      font-size: rem(14);
+      color: $neutral-01-100percent;
+    }
+    &__content {
+      @extend .mxauto;
+      display: flex;
+      justify-content: space-between;
+      padding: rem(16) 0 rem(52);
+    }
+    &__sns {
+      display: flex;
+      gap: rem(12);
+    }
+    &__copyright {
+      display: flex;
+      align-items: center;
+    }
+    &__copy {
+      font-weight: 400;
+      color: $neutral-03-100percent;
+      font-size: rem(14);
+      margin-right: rem(14);
+    }
+    &__policy {
+      font-weight: 600;
+      color: $neutral-03-100percent;
+      font-size: rem(14);
+      span {
+        margin-inline: rem(14);
+      }
+    }
+  }
+}
